@@ -3,8 +3,8 @@ Complementary authorization and access control modules for O-MI.
 
 Dependencies
 ------------
-- Java-1.7
-- O-MI Node 0.2.1
+- Java SDK > 1.7
+- O-MI Node
 
 Installation
 --------------
@@ -27,4 +27,4 @@ Possible problems
 --------------
 1. After authorization AC Webclient does not work and still redirects to the Login page.
 
-**Solution**: Add email you are using for registration to `admin_list.txt` (one row per e-mail) and delete `OMISec.db` inside project folder, then restart the module.
+**Solution**: Add email you are using for registration to `admin_list.txt` (one row per e-mail) and delete `OMISec.db` inside project folde

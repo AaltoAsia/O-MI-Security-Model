@@ -1,0 +1,15 @@
+{
+    //VS CODE TASKS
+    "version": "0.1.0",
+    "command": "cmd",
+    "args": ["/C"],
+    "isShellCommand": true,
+    "showOutput": "always",
+    "suppressTaskName": true,
+    "tasks": [
+        {
+            "taskName": "runjar",
+            "args": ["java -jar ${workspaceRoot}/target/OMISecurityModule-1.0-SNAPSHOT-jar-with-dependencies.jar"]
+        }
+    ]
+}

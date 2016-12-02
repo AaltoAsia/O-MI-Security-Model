@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+    <display-name>O-MI Security Module</display-name>
+    <!-- Servlets -->
+    <servlet>
+        <servlet-name>Home</servlet-name>
+        <servlet-class>fi.aalto.omi.securitymodule.servlet.HomeServlet</servlet-class>
+        <init-param>
+            <param-name>onLoginRedirectTo</param-name>
+            <param-value>/omi/html/webclient/index.html</param-value>
+        </init-param>
+    </servlet>
+    <servlet>
+        <servlet-name>Login</servlet-name>
+        <servlet-class>fi.aalto.omi.securitymodule.servlet.LoginServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Logout</servlet-name>
+        <servlet-class>fi.aalto.omi.securitymodule.servlet.LogoutServlet</servlet-class>
+        <init-param>
+            <param-name>onLogoutRedirectTo</param-name>
+            <param-value>/omi/html/webclient/index.html</param-value>
+        </init-param>
+    </servlet>
+    <servlet>
+        <servlet-name>Permissions</servlet-name>
+        <servlet-class>fi.aalto.omi.securitymodule.servlet.PermissionsServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RedirectCallback</servlet-name>
+        <servlet-class>com.auth0.Auth0ServletCallback</servlet-class>
+        <init-param>
+            <param-name>auth0.redirect_on_success</param-name>
+            <param-value>/omi/auth0/home</param-value>
+        </init-param>
+        <init-param>
+            <param-name>auth0.redirect_on_error</param-name>
+            <param-value>/login</param-value>
+        </init-param>
+    </servlet>
+     <servlet>
+        <servlet-name>proxy</servlet-name>
+        <servlet-class>org.eclipse.jetty.proxy.ProxyServlet$Transparent</servlet-class>
+        <init-param>
+            <param-name>proxyTo</param-name>
+            <param-value>http://localhost:8080/</param-value>
+        </init-param>
+        <init-param>
+            <param-name>prefix</param-name>
+            <param-value>/omi</param-value>
+        </init-param>
+        <async-supported>true</async-supported>
+    </servlet>
+    
+
+    <!-- Servlet Mappings -->
+    <servlet-mapping>
+        <servlet-name>proxy</servlet-name>
+        <url-pattern>/omi/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Home</servlet-name>
+        <url-pattern>/omi/auth0/home</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Login</servlet-name>
+        <url-pattern>/omi/auth0/login</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RedirectCallback</servlet-name>
+        <url-pattern>/omi/auth0/callback</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Logout</servlet-name>
+        <url-pattern>/omi/auth0/logout</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Permissions</servlet-name>
+        <url-pattern>/omi/auth0/permissions</url-pattern>
+    </servlet-mapping>
+
+    <!-- Auth0 Configuration -->
+    <context-param>
+        <param-name>auth0.domain</param-name>
+        <param-value>omi.eu.auth0.com</param-value>
+    </context-param>
+    <context-param>
+        <param-name>auth0.issuer</param-name>
+        <param-value>https://omi.eu.auth0.com/</param-value>
+    </context-param>
+    <context-param>
+        <param-name>auth0.client_id</param-name>
+        <param-value>3mqHxLrF6p2OigpVgjAkjvfox9nHyDhP</param-value>
+    </context-param>
+    <context-param>
+        <param-name>auth0.client_secret</param-name>
+        <param-value>qbZvWXCgIfwdhouPQyq34gV9tycuvsVcLeQj6pQurSJya5ArPhnwzDleAb0Gow2J</param-value>
+    </context-param>
+    <context-param>
+        <param-name>auth0.signing_algorithm</param-name>
+        <param-value>HS256</param-value>
+        <!--<param-value>RS256</param-value>-->
+    </context-param>
+    <!--only required when using RS256 - obtain cert.pem from Auth0 Dashboard for your Tenant-->
+    <context-param>
+        <param-name>auth0.public_key_path</param-name>
+        <param-value>/WEB-INF/certificate/cert.pem</param-value>
+    </context-param>
+    
+    <session-config>
+        <cookie-config>
+            <path>/omi</path>
+            <secure>true</secure>
+        </cookie-config>
+    </session-config>
+    
+</web-app>

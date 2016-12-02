@@ -1,2 +1,0 @@
-// Add administrator email one per row and then restart the module
-testadmin@mail.com

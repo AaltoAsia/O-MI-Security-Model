@@ -1,0 +1,1 @@
+"%JAVA_HOME%\bin\java.exe" -jar target\OMISecurityModule-1.0-jar-with-dependencies.jar
