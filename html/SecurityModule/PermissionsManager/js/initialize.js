@@ -239,9 +239,8 @@
 
       my.resetAllBtn = $('#resetall');
       my.progressBar = $('.response .progress-bar');
-      loc = window.location.href;
-      my.serverUrl.val("https://localhost/omi/");
-      //my.serverUrl.val(loc.substr(0, loc.indexOf("html/")));
+      var OMIurl = window.location.href.replace("PermissionsManager", "omi");
+      my.serverUrl.val(OMIurl);
       my.odfTreeDom.jstree(my.odfTreeSettings);
       my.odfTree = my.odfTreeDom.jstree();
       my.odfTree.set_type('Objects', 'objects');
