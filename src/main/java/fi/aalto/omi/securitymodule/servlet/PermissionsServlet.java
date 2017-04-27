@@ -48,6 +48,17 @@ public class PermissionsServlet extends HttpServlet {
         result.add(keyName, jsonElement);
         return gson.toJson(result);
     }
+	
+	// Additional functionality added to return the user name to O-MI node 
+	private void returnUserName(HttpServletResponse response, String result, String userName) throws IOException {
+		if (result.equalsIgnoreCase("true")) {
+			response.getWriter().write("{\"result\":\"ok\",\"userID\":\"" + userName + "\"}");
+		}
+		else {
+			response.getWriter().write("{\"result\":\"noAccess\",\"userID\":\"" + userName + "\"}");
+		}
+	}
+
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
@@ -179,7 +190,10 @@ public class PermissionsServlet extends HttpServlet {
                             "    isWrite:"+isWrite);
 
                 boolean result = AuthService.getInstance().checkPermissions(paths_to_check, userEmail, isWrite);
-                response.getWriter().write(result ? "true" : "false");
+                //response.getWriter().write(result ? "true" : "false");
+				
+				// **************************************************************************************
+				returnUserName(response, String.valueOf(result), userEmail);
 
         } else if (readPaths != null) {
 
