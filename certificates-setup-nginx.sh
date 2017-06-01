@@ -1,4 +1,4 @@
-## !/bin/bash
+#!/bin/bash
 
 PASS_PHRASE=qwerty
 EXPORT_PASS=browser 
@@ -26,7 +26,7 @@ openssl x509 -req -days 365 -in server.csr -CA ca.crt -CAkey ca.key -set_serial 
 openssl rsa -in server.key -out server.key -passin pass:$PASS_PHRASE
 
 ## Copy certificates to the approriate directory
-cp server.crt $NGINX_PATH/conf/server.crt
-cp server.key $NGINX_PATH/conf/server.key
-cp ca.crt $NGINX_PATH/conf/ca.crt
+cp server.crt $NGINX_PATH/conf/
+cp server.key $NGINX_PATH/conf/
+cp ca.crt $NGINX_PATH/conf/
 
