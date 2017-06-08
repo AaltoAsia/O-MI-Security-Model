@@ -559,6 +559,7 @@
       var objectsArr, omi, parsed;
       omi = WebOmi.omi;
       parsed = omi.parseXml(responseString);
+      console.log("----------" + responseString);
       objectsArr = omi.evaluateXPath(parsed, "//odf:Objects");
       if (objectsArr.length !== 1) {
         return alert("failed to get single Objects odf root");

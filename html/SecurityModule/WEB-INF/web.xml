@@ -82,19 +82,19 @@
     <!-- Auth0 Configuration -->
     <context-param>
         <param-name>auth0.domain</param-name>
-        <param-value>omi.eu.auth0.com</param-value>
+        <param-value>asad26.eu.auth0.com</param-value>
     </context-param>
     <context-param>
         <param-name>auth0.issuer</param-name>
-        <param-value>https://omi.eu.auth0.com/</param-value>
+        <param-value>https://asad26.eu.auth0.com/</param-value>
     </context-param>
     <context-param>
         <param-name>auth0.client_id</param-name>
-        <param-value>3mqHxLrF6p2OigpVgjAkjvfox9nHyDhP</param-value>
+        <param-value>dn0wr4ly4f4SMtuxRHiOKT6RnhdAGroU</param-value>
     </context-param>
     <context-param>
         <param-name>auth0.client_secret</param-name>
-        <param-value>qbZvWXCgIfwdhouPQyq34gV9tycuvsVcLeQj6pQurSJya5ArPhnwzDleAb0Gow2J</param-value>
+        <param-value>nPSxibadLuOz6oK7lYjtu5Z07h7MsNT01oB6e-wFaE5waH9lBdsUPnILQxbx_rRn</param-value>
     </context-param>
     <context-param>
         <param-name>auth0.signing_algorithm</param-name>

@@ -9,11 +9,11 @@ import java.util.ArrayList;
 /**
  * Created by romanfilippov on 22/11/15.
  */
-@XmlRootElement(name="Objects", namespace = "odf.xsd")
+@XmlRootElement(name="Objects", namespace = "http://www.opengroup.org/xsd/odf/1.0/")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class OMIObjects {
 
-    @XmlElement(name="Object", namespace = "odf.xsd")
+    @XmlElement(name="Object", namespace = "http://www.opengroup.org/xsd/odf/1.0/")
     private ArrayList<OMIObject> objects = new ArrayList<OMIObject>();
 
     public ArrayList<OMIObject> getObjects() {

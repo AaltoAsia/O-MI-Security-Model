@@ -23,7 +23,7 @@
         </triggeringPolicy>
         <append>true</append>
         <encoder>
-            <pattern>%date{ISO8601} %-5level[%thread] %logger{1} - %msg%n</pattern>
+            <pattern>%date{yyyy-MM-dd} %X{akkaTimestamp} %-5level[%thread] %logger{1} - %msg%n</pattern>
         </encoder>
     </appender>
 
