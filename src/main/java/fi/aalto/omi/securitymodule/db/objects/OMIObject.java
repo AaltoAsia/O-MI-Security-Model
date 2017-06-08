@@ -11,15 +11,15 @@ import java.util.ArrayList;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class OMIObject {
 
-    @XmlElement(name="id",namespace = "odf.xsd")
+    @XmlElement(name="id",namespace = "http://www.opengroup.org/xsd/odf/1.0/")
     private String id;
 
     public String xPath;
 
-    @XmlElement(name="Object",namespace = "odf.xsd")
+    @XmlElement(name="Object",namespace = "http://www.opengroup.org/xsd/odf/1.0/")
     private ArrayList<OMIObject> subObjects = new ArrayList<OMIObject>();
 
-    @XmlElement(name="InfoItem",namespace = "odf.xsd")
+    @XmlElement(name="InfoItem",namespace = "http://www.opengroup.org/xsd/odf/1.0/")
     private ArrayList<OMIInfoItem> infoItems = new ArrayList<OMIInfoItem>();
 
     public String getId() {
