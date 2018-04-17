@@ -442,6 +442,7 @@
       // TODO: make server URL changeable
       //consts.serverUrl.val();
       request = consts.requestCodeMirror.getValue();
+      request = request.replace("http://www.opengroup.org/xsd/omi/1.0/","omi.xsd").replace("http://www.opengroup.org/xsd/odf/1.0/","odf.xsd");
       consts.progressBar.css("width", "95%");
       return $.ajax({
         type: "POST",
